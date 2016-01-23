@@ -1,0 +1,41 @@
+At any one time, SELinux can be in any of three possible modes:
+
+Enforcing
+Permissive
+Disabled
+
+In enforcing mode SELinux will enforce its policy on the Linux system and make sure any unauthorized access attempts by users and processes are denied. The access denials are also written to relevant log files. We will talk about SELinux policies and audit logs later.
+
+Permissive mode is like a semi-enabled state. SELinux doesn't apply its policy in permissive mode, so no access is denied. However any policy violation is still logged in the audit logs. It's a great way to test SELinux before enforcing it.
+
+The disabled mode is self-explanatory – the system won't be running with enhanced security.
+
+Checking SELinux Modes and Status
+We can run the getenforce command to check the current SELinux mode.
+getenforce
+SELinux should currently be disabled, so the output will look like this:
+Disabled
+We can also run the sestatus command:
+sestatus
+When SELinux is disabled the output will show:
+SELinux status:        disabled
+
+SELinux Configuration File
+cat /etc/selinux/config
+
+The SELINUXTYPE directive determines the policy that will be used. The default value is targeted. With a targeted policy, SELinux allows you to customize and fine tune access control permissions. The other possible value is "MLS" (multilevel security), an advanced mode of protection. Also with MLS, you need to install an additional package.
+
+setenforce enforcing
+
+
+
+
+
+
+
+
+
+
+
+
+
