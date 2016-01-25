@@ -27,6 +27,8 @@ The SELINUXTYPE directive determines the policy that will be used. The default v
 
 setenforce enforcing
 
+To understand policy, we have to learn some basic terminology. We will go into the details later, but here is a brief introduction. An SELinux policy defines user access to roles, role access to domains, and domain access to types.
+
 
 
 
